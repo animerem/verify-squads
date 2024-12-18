@@ -1,0 +1,20 @@
+# Solana.toml is used to declare settings for use with `npx solana`
+
+[settings]
+# define the directory to store all the fixtures (accounts/programs) you want to clone
+# accountDir = ".cache/accounts" # default="fixtures"
+
+# desired cluster to clone all fixtures from (if not individually overriden per fixture)
+# cluster = "mainnet" # default="mainnet"
+# cluster = "devnet"
+# cluster = "testnet"
+
+# path to a local keypair file that will be used as the default authority for various operations
+# keypair = "any-path" # default="~/.config/solana/id.json"
+
+[programs.localnet]
+hello_world = "kGYz2q2WUYCXhKpgUF4AMR3seDA9eg8sbirP5dhbyhy"
+[programs.devnet]
+hello_world = "kGYz2q2WUYCXhKpgUF4AMR3seDA9eg8sbirP5dhbyhy"
+[programs.mainnet]
+hello_world = "kGYz2q2WUYCXhKpgUF4AMR3seDA9eg8sbirP5dhbyhy"
