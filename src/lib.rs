@@ -11,7 +11,7 @@ pub fn process_instruction(
     _instruction_data: &[u8],
 ) -> ProgramResult {
     // log a message to the blockchain
-    msg!("Hello, world!");
+    msg!("Hello, squads!");
 
     // gracefully exit the program
     Ok(())
