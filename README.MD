@@ -46,8 +46,6 @@ Make sure that in the simulation the transaction only has a call to the osec ver
 solana-verify remote submit-job --program-id 6XBGfP17P3KQAKoJb2s5M5fR4aFTXzPeuC1af2GYkvhD --uploader 3JG6ULvZVCrkKtSSskKNJGe8RNZGFe8Ruev9KUhxzK5K
 ```
 
-
-
 Doing an update to the program:
 
 ```bash
@@ -55,3 +53,36 @@ solana-verify build
 solana program write-buffer target/deploy/verify_squads.so --with-compute-unit-price 50000 --max-sign-attempts 50
 ```
 
+Then transfer that buffer authority to the multisig.
+
+```bash
+solana program set-buffer-authority Fu3k79g53ZozAj47uq1tXrFy4QbQYh7y745DDsxjtyLR --new-buffer-authority 3JG6ULvZVCrkKtSSskKNJGe8RNZGFe8Ruev9KUhxzK5K
+```
+
+Export the PDA upgrade transaction again:
+
+```bash
+solana-verify export-pda-tx https://github.com/Woody4618/verify-squads --program-id 6XBGfP17P3KQAKoJb2s5M5fR4aFTXzPeuC1af2GYkvhD --uploader 3JG6ULvZVCrkKtSSskKNJGe8RNZGFe8Ruev9KUhxzK5K
+```
+
+https://solana.fm/tx/4zJ1vK2KToAwxuEYzTMLqPkcebjoi9rdeeyxtEEx9L5Q4vWDA8h6Rr4kPRuRxcV7ZLKMr6qx1LTWb6x3ZpUJaFUW?cluster=mainnet-alpha
+
+Then submit for another remote build:
+
+```bash
+solana-verify remote submit-job --program-id 6XBGfP17P3KQAKoJb2s5M5fR4aFTXzPeuC1af2GYkvhD --uploader 3JG6ULvZVCrkKtSSskKNJGe8RNZGFe8Ruev9KUhxzK5K
+```
+
+Should result in something like this:
+
+Verification request sent with request id: b63339d2-163e-49ac-b55d-3454c1c2b5b3
+Verification in progress... ⏳
+[00:18:02]    ✅ Process completed. (Done in 18 minutes)                                                                                                      Program 6XBGfP17P3KQAKoJb2s5M5fR4aFTXzPeuC1af2GYkvhD has been verified. ✅
+The provided GitHub build matches the on-chain hash.
+On Chain Hash: 96f8c3d9400258f7759408d1f6f8435b4a24d9b52f5a0340d97907e567cb8773
+Executable Hash: 96f8c3d9400258f7759408d1f6f8435b4a24d9b52f5a0340d97907e567cb8773
+Repo URL: https://github.com/Woody4618/verify-squads/tree/0fb0a2e30c15c51732c0ad5e837975a6f7bbc7ed
+Check the verification status at: https://verify.osec.io/status/6XBGfP17P3KQAKoJb2s5M5fR4aFTXzPeuC1af2GYkvhD
+Job url: https://verify.osec.io/job/b63339d2-163e-49ac-b55d-3454c1c2b5b3
+
+Gratulations you have verified your program after a multisig upgrade!
