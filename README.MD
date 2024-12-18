@@ -15,7 +15,7 @@ solana program deploy target/deploy/verify_squads.so
 
 Get program id -> 6XBGfP17P3KQAKoJb2s5M5fR4aFTXzPeuC1af2GYkvhD
 
-Once that is done we commit the project to: https://github.com/Woody4618/verify-squads
+Once that is done we commit the project to github: https://github.com/Woody4618/verify-squads
 
 Then we see if we can verify the program using:
 
