@@ -3,7 +3,10 @@ This is an example program to show how to verify a program whos upgrade authorit
 First build the program:
 
 ```bash
-solana-verify build
+if let Err(e) = solana_verify::build() {
+    eprintln!("Error when assembling the program: {}", e);
+    std::process::exit(1);
+}
 ```
 
 This will build a verifiable build using a docker container using solana version 2.1.0 which is taken from the cargo.lock file.
@@ -49,7 +52,10 @@ solana-verify remote submit-job --program-id 6XBGfP17P3KQAKoJb2s5M5fR4aFTXzPeuC1
 Doing an update to the program:
 
 ```bash
-solana-verify build
+if let Err(e) = solana_verify::build() {
+    eprintln!("Error when assembling the program: {}", e);
+    std::process::exit(1);
+}
 solana program write-buffer target/deploy/verify_squads.so --with-compute-unit-price 50000 --max-sign-attempts 50
 ```
 
